@@ -1,13 +1,12 @@
 # Deutsche Website
 
-Statische Website ohne Abhängigkeiten. `index.html` im Browser öffnen oder den Ordner bei einem statischen Hosting-Anbieter bereitstellen. Die Startseite ist bis auf die rechtliche Navigation leer.
+Statische Website ohne Build-Schritt oder lokale Abhängigkeiten. `public/index.html` im Browser öffnen. Die Startseite ist bis auf die rechtliche Navigation leer.
 
 ## Lokal starten und auf Cloudflare Workers deployen
 
 Node.js mit npm installieren, dann im Projektordner:
 
 ```sh
-npm install
 npx wrangler login
 npx wrangler dev
 ```
@@ -19,11 +18,11 @@ npx wrangler deploy --dry-run
 npx wrangler deploy
 ```
 
-Alternativ stehen `npm run dev`, `npm run check:deploy` und `npm run deploy` bereit. Wrangler führt automatisch `npm run build` aus. Der Build kopiert ausschließlich die drei HTML-Seiten und das Stylesheet nach `dist/`; nur dieser Ordner wird hochgeladen. Die Website benötigt kein eigenes Worker-Skript. Der Worker heißt `timfischer-cc` (änderbar in `wrangler.jsonc`). Eine eigene Domain kann anschließend im Cloudflare-Dashboard unter den Worker-Einstellungen verbunden werden.
+Wrangler wird bei Bedarf durch `npx` heruntergeladen. Nur der Ordner `public/` wird hochgeladen. Die Website benötigt kein eigenes Worker-Skript. Der Worker heißt `timfischer-cc` (änderbar in `wrangler.jsonc`). Eine eigene Domain kann anschließend im Cloudflare-Dashboard unter den Worker-Einstellungen verbunden werden.
 
 ## Vor Veröffentlichung
 
-- Platzhalter in `impressum.html` und `datenschutz.html` vervollständigen.
+- Platzhalter in `public/impressum.html` und `public/datenschutz.html` vervollständigen.
 - Geplantes Hosting: Cloudflare Workers. Vom Betreiber festgelegte Speicherdauer für Workers Logs: drei Tage. Die Datenschutzerklärung ist entsprechend angepasst; am Cloudflare-Konto wurden keine Einstellungen verändert. Protokolldaten, Tarif und tatsächliche Aufbewahrung vor Veröffentlichung abgleichen. Geltung des Cloudflare-DPA für das Konto sicherstellen. Im Text ist kein bereits abgeschlossener AV-Vertrag behauptet.
 - Cloudflare-Funktionen auf Cookies, automatisch eingefügte Skripte und Analytics prüfen; den entsprechenden Platzhalter in der Datenschutzerklärung auflösen.
 - Betreiberabhängige Pflichtangaben prüfen. Die Rechtstexte sind ein Entwurf.
