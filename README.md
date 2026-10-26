@@ -1,32 +1,4 @@
-# Deutsche Website
-
-Statische Website ohne Build-Schritt oder lokale Abhängigkeiten. `public/index.html` im Browser öffnen. Die Startseite ist bis auf die rechtliche Navigation leer.
-
-## Lokal starten und auf Cloudflare Workers deployen
-
-Node.js mit npm installieren, dann im Projektordner:
-
-```sh
-npx wrangler login
-npx wrangler dev
-```
-
-Deployment prüfen und anschließend veröffentlichen:
-
-```sh
-npx wrangler deploy --dry-run
-npx wrangler deploy
-```
-
-Wrangler wird bei Bedarf durch `npx` heruntergeladen. Nur der Ordner `public/` wird hochgeladen. Die Website benötigt kein eigenes Worker-Skript. Der Worker heißt `timfischer-cc` (änderbar in `wrangler.jsonc`). Eine eigene Domain kann anschließend im Cloudflare-Dashboard unter den Worker-Einstellungen verbunden werden.
-
-## Vor Veröffentlichung
-
-- Platzhalter in `public/impressum.html` und `public/datenschutz.html` vervollständigen.
-- Geplantes Hosting: Cloudflare Workers. Vom Betreiber festgelegte Speicherdauer für Workers Logs: drei Tage. Die Datenschutzerklärung ist entsprechend angepasst; am Cloudflare-Konto wurden keine Einstellungen verändert. Protokolldaten, Tarif und tatsächliche Aufbewahrung vor Veröffentlichung abgleichen. Geltung des Cloudflare-DPA für das Konto sicherstellen. Im Text ist kein bereits abgeschlossener AV-Vertrag behauptet.
-- Cloudflare-Funktionen auf Cookies, automatisch eingefügte Skripte und Analytics prüfen; den entsprechenden Platzhalter in der Datenschutzerklärung auflösen.
-- Betreiberabhängige Pflichtangaben prüfen. Die Rechtstexte sind ein Entwurf.
-- Nach Fertigstellung die `noindex`-Angabe auf den Rechtsseiten nach Wunsch entfernen.
+Leere Website mit Impressum
 
 ## Anwaltliche Vorlagen
 
