@@ -1,0 +1,78 @@
+{
+  "version": 2,
+  "gemeinsame_fragen": ["standort", "bilder"],
+  "bauteile": {
+    "fenster": { "bezeichnung": "Fenster", "fragen": ["fensterproblem", "breite"] },
+    "rollladen": { "bezeichnung": "Rollladen", "fragen": ["rollladenantrieb", "rollladenproblem", "reaktion_abwaerts", "reaktion_aufwaerts", "breite"] },
+    "jalousie": { "bezeichnung": "Jalousie", "fragen": ["jalousieantrieb", "jalousieproblem", "breite"] },
+    "markise": { "bezeichnung": "Markise", "fragen": ["markisenantrieb", "markisenproblem", "breite"] }
+  },
+  "fragen": {
+    "standort": {
+      "titel": "Standort",
+      "text": "Bitte beschreiben sie den Standort präzise z.B. Küche links oder OG Bad",
+      "typ": "text", "pflicht": true, "maximale_laenge": 200,
+      "kurzbezeichnung": "Standort", "in_uebersicht": true
+    },
+    "bilder": {
+      "titel": "Bilder", "text": "Fügen Sie bei Bedarf Bilder des Bauteils oder Schadens hinzu.",
+      "typ": "bilder", "pflicht": false
+    },
+    "breite": {
+      "titel": "Breite", "text": "Wie breit ist das Bauteil ungefähr? Die Angabe ist optional.",
+      "typ": "zahl", "einheit": "cm", "minimum": 1, "maximum": 2000, "pflicht": false,
+      "sichtbar_wenn": [{"bilder_vorhanden": false}],
+      "kurzbezeichnung": "Breite", "in_uebersicht": true
+    },
+    "rollladenantrieb": {
+      "titel": "Bedienung", "text": "Wie wird der Rollladen bedient?", "typ": "auswahl",
+      "pflicht": true, "kurzbezeichnung": "Bedienung", "in_uebersicht": true,
+      "antworten": [{"wert":"elektrisch","text":"Elektrisch"},{"wert":"gurt","text":"Gurt"},{"wert":"kurbel","text":"Kurbel"}]
+    },
+    "jalousieantrieb": {
+      "titel": "Bedienung", "text": "Wie wird die Jalousie bedient?", "typ": "auswahl",
+      "pflicht": true, "kurzbezeichnung": "Bedienung", "in_uebersicht": true,
+      "antworten": [{"wert":"elektrisch","text":"Elektrisch"},{"wert":"schnur","text":"Schnur / Zugkette"},{"wert":"kurbel","text":"Kurbel"}]
+    },
+    "markisenantrieb": {
+      "titel": "Bedienung", "text": "Wie wird die Markise bedient?", "typ": "auswahl",
+      "pflicht": true, "kurzbezeichnung": "Bedienung", "in_uebersicht": true,
+      "antworten": [{"wert":"elektrisch","text":"Elektrisch"},{"wert":"kurbel","text":"Kurbel"}]
+    },
+    "fensterproblem": {
+      "titel": "Problem", "text": "Was ist am Fenster defekt?", "typ": "auswahl", "pflicht": true,
+      "kurzbezeichnung": "Problem", "in_uebersicht": true,
+      "antworten": [{"wert":"oeffnen_schliessen","text":"Öffnen / Schließen"},{"wert":"undicht","text":"Undicht"},{"wert":"glas","text":"Glas beschädigt"},{"wert":"anderes","text":"Anderes Problem"}]
+    },
+    "rollladenproblem": {
+      "titel": "Problem", "text": "Was ist am Rollladen defekt?", "typ": "auswahl", "pflicht": true,
+      "kurzbezeichnung": "Problem", "in_uebersicht": true,
+      "fruehere_antworten": [{"wert":"bewegung","text":"Bewegt sich nicht"},{"wert":"gurt","text":"Gurt beschädigt"},{"wert":"lamellen","text":"Lamellen beschädigt"},{"wert":"anderes","text":"Anderes Problem"}],
+      "antworten": [{"wert":"oben","text":"Ist oben und geht nicht runter"},{"wert":"unten","text":"Ist unten und geht nicht hoch"}]
+    },
+    "reaktion_abwaerts": {
+      "titel": "Beim Herunterlassen", "text": "Was passiert beim Versuch, den Rollladen herunterzulassen?",
+      "typ": "auswahl", "pflicht": true,
+      "sichtbar_wenn": [{"frage":"rollladenproblem","wert":"oben"}],
+      "kurzbezeichnung": "Beim Herunterlassen", "in_uebersicht": true,
+      "antworten": [{"wert":"fest","text":"Die Bedienung sitzt fest"},{"wert":"leer","text":"Die Bedienung bewegt sich ohne Wirkung"},{"wert":"motor","text":"Ein Geräusch ist hörbar"},{"wert":"keine_reaktion","text":"Es passiert nichts"}]
+    },
+    "reaktion_aufwaerts": {
+      "titel": "Beim Hochziehen", "text": "Wie reagiert der Rollladen beim Versuch, ihn hochzuziehen?",
+      "typ": "auswahl", "pflicht": true,
+      "sichtbar_wenn": [{"frage":"rollladenproblem","wert":"unten"}],
+      "kurzbezeichnung": "Beim Hochziehen", "in_uebersicht": true,
+      "antworten": [{"wert":"gar_nicht","text":"Er bewegt sich gar nicht"},{"wert":"ein_stueck","text":"Er bewegt sich nur ein Stück"},{"wert":"einseitig","text":"Er bewegt sich nur auf einer Seite"}]
+    },
+    "jalousieproblem": {
+      "titel": "Problem", "text": "Was ist an der Jalousie defekt?", "typ": "auswahl", "pflicht": true,
+      "kurzbezeichnung": "Problem", "in_uebersicht": true,
+      "antworten": [{"wert":"bewegung","text":"Bewegt sich nicht"},{"wert":"lamellen","text":"Lamellen beschädigt"},{"wert":"bedienung","text":"Bedienung defekt"},{"wert":"anderes","text":"Anderes Problem"}]
+    },
+    "markisenproblem": {
+      "titel": "Problem", "text": "Was ist an der Markise defekt?", "typ": "auswahl", "pflicht": true,
+      "kurzbezeichnung": "Problem", "in_uebersicht": true,
+      "antworten": [{"wert":"bewegung","text":"Fährt nicht ein / aus"},{"wert":"tuch","text":"Tuch beschädigt"},{"wert":"gestell","text":"Gestell beschädigt"},{"wert":"anderes","text":"Anderes Problem"}]
+    }
+  }
+}
